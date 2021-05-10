@@ -7,3 +7,7 @@ Step 1 :(Get map)
   
 Step 2 :(Get robot to gazebo)
   roslaunch blind_test spawn_moby.launch
+  
+Step 3 :(use teleop for move)
+  rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+  velocity max is 0.05!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

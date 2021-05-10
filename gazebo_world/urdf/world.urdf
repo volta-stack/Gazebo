@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<robot name="world">
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <!--<mesh filename="package://blind_test/model/meshes/plate.STL"/>-->
+                <box size="10 10 0.005"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="10 10 0.005"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="wall_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <!--<mesh filename="package://blind_test/model/meshes/plate.STL"/>-->
+                <box size="0.005 10 1"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.005 10 1"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <mass value="0.1"/>
+            <inertia ixx="0.000704166" ixy="0.0" ixz="0.0" iyy="0.000141041" iyz="0" izz="0.00056354167"/>
+        </inertial>
+    </link>
+
+    <joint name="wall_joint" type="fixed">
+        <origin xyz="5 0 0.5" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="wall_link"/>
+    </joint>
+
+    <link name="wall_1_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <!--<mesh filename="package://blind_test/model/meshes/plate.STL"/>-->
+                <box size="0.005 10 1"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.005 10 1"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <mass value="0.1"/>
+            <inertia ixx="0.000704166" ixy="0.0" ixz="0.0" iyy="0.000141041" iyz="0" izz="0.00056354167"/>
+        </inertial>
+    </link>
+
+    <joint name="wall_1_joint" type="fixed">
+        <origin xyz="-5 0 0.5" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="wall_1_link"/>
+    </joint>
+
+    <link name="wall_2_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <!--<mesh filename="package://blind_test/model/meshes/plate.STL"/>-->
+                <box size="0.005 10 1"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.005 10 1"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <mass value="0.1"/>
+            <inertia ixx="0.000704166" ixy="0.0" ixz="0.0" iyy="0.000141041" iyz="0" izz="0.00056354167"/>
+        </inertial>
+    </link>
+
+    <joint name="wall_2_joint" type="fixed">
+        <origin xyz="0 5 0.5" rpy="0 0 1.5708"/>
+        <parent link="base_link"/>
+        <child link="wall_2_link"/>
+    </joint>
+
+    <link name="wall_3_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <!--<mesh filename="package://blind_test/model/meshes/plate.STL"/>-->
+                <box size="0.005 10 1"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.005 10 1"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <mass value="0.1"/>
+            <inertia ixx="0.000704166" ixy="0.0" ixz="0.0" iyy="0.000141041" iyz="0" izz="0.00056354167"/>
+        </inertial>
+    </link>
+
+    <joint name="wall_3_joint" type="fixed">
+        <origin xyz="0 -5 0.5" rpy="0 0 1.5708"/>
+        <parent link="base_link"/>
+        <child link="wall_3_link"/>
+    </joint>
+
+    <link name="box_link">
+        <visual>
+            <origin xyz ="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.1 0.1 0.5"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.1 0.1 0.5"/>
+            </geometry>
+        </collision>
+
+    </link>
+
+    <joint name = "box_joint" type = "fixed">
+        <origin xyz = "3.0 3.0 0.25" rpy = "0 0 0"/>
+        <parent link = "base_link"/>
+        <child link = "box_link"/>
+    </joint>
+
+    <link name="box_2_link">
+        <visual>
+            <origin xyz ="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.2 0.2 0.5"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.2 0.2 0.5"/>
+            </geometry>
+        </collision>
+
+    </link>
+
+    <joint name = "box_2_joint" type = "fixed">
+        <origin xyz = "-2 -2 0.25" rpy = "0 0 0"/>
+        <parent link = "base_link"/>
+        <child link = "box_2_link"/>
+    </joint>
+
+
+    <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/world</robotNamespace>
+    </plugin>
+    </gazebo>
+
+</robot>

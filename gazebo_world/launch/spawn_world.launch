@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <include file="$(find gazebo_world)/launch/urdf_spawn.launch">
+        <arg name="x" value="0.0" />
+        <arg name="y" value="0.0" />
+        <arg name="z" value="0.01" />
+        <arg name="urdf_file" value="$(find gazebo_world)/urdf/world.urdf" />
+        <arg name="robot_name" value="world" />
+    </include>
+   
+
+  <!-- send fake joint values -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+  </node>
+
+  <!-- Robot State -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+</launch>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+<!--***********************roslaunch blind_test gazebo_urdf.launch**************************-->
+
+    <include file="$(find blind_test)/launch/empty_world.launch"/>
+
+    <!--<include file="$(find blind_test)/launch/spawn_moby.launch"/>-->
+
+    <include file="$(find gazebo_world)/launch/spawn_world.launch"/>
+
+</launch>
